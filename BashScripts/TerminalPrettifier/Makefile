@@ -2,6 +2,9 @@
 # gcc -std=c11 -g -Wall -I ./terminal_prettifier_script_gen.c -o ./terminal_prettifier_script_gen -lm
 all:
 	gcc ./terminal_prettifier_script_gen.c -o terminal_prettifier_script_gen
+try_bash: all
+	./terminal_prettifier_script_gen
+	bash ./terminal_prettifier.sh
 clean:
 	rm ./terminal_prettifier_script_gen
 	@echo Cleanup complete!

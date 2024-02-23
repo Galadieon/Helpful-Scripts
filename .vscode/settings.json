@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "string.h": "c"
+        "string.h": "c",
+        "assert.h": "c"
     },
     "cmake.sourceDirectory": "/workspaces/Helpful-Scripts/BashScripts/TerminalPrettifier"
 }
