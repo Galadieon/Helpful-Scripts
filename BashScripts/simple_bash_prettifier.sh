@@ -1,5 +1,6 @@
 mkdir ~/bin ~/.oh-my-posh-configs
-printf '\n\nexport PATH="/home/codespace/bin:$PATH"\neval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"' >> ~/.bashrc
+printf '\n\nexport PATH="/home/codespace/bin:$PATH"\n' >> ~/.bashrc
+printf 'eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.bashrc
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 touch ~/.oh-my-posh-configs/sonicboom_light.omp.json
 printf '%s\n' '{' \
