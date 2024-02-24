@@ -3,6 +3,10 @@
 #include <string.h>
 #include <assert.h>
 
+#define BUFFER_SIZE 100
+#define SAME_STR 0
+#define BASHRC_ERROR 1
+
 struct
 {
     const char* start_str;
@@ -68,16 +72,16 @@ void file_print_configs(FILE* file)
 {
     FILE* config_file_names = fopen("./config_file_names.txt", "r");
     FILE* config_file_contents;
-    char file_name[100];
-    char file_content[500];
-    char temp[100];
+    char file_name[BUFFER_SIZE];
+    char file_content[5 * BUFFER_SIZE];
+    char temp[BUFFER_SIZE];
     
     assert(file != NULL);
     
     while (fgets(file_name, sizeof(file_name), config_file_names) != NULL)
     {
         file_name[strcspn(file_name, "\n")] = '\0';
-        if (strcmp(file_name, "sonicboom_light.omp.json") == 0)
+        if (strcmp(file_name, "sonicboom_light.omp.json") == SAME_STR)
             fprintf(file, "%s%s%s\n", ConfigConstants.start_str_default, file_name, ConfigConstants.end_str);
         else
             fprintf(file, "%s%s%s\n", ConfigConstants.start_str, file_name, ConfigConstants.end_str);
@@ -89,7 +93,7 @@ void file_print_configs(FILE* file)
         config_file_contents = fopen(temp, "r");
         while (fgets(file_content, sizeof(file_content), config_file_contents) != NULL)
         {
-            if (strncmp(file_content, "{", 1) == 0) continue;
+            if (strncmp(file_content, "{", 1) == SAME_STR) continue;
             fprintf(file, "'%s' \\\n", str_replace(file_content, "\n", ""));
         }
         fprintf(file, "%s%s\n", ">> ~/.oh-my-posh-configs/", file_name);
@@ -113,14 +117,14 @@ void file_print_requirements(FILE *file)
 
 int main(const int argc, const char** argv[])
 {
-    char temp[100], test_string[] = "# HALT TERMINAL PRETTIFIER\n";
+    char temp[BUFFER_SIZE], test_string[] = "# HALT TERMINAL PRETTIFIER\n";
     init_constants();
 
     FILE* bashrc = fopen("/home/codespace/.bashrc", "r");
     
     while (fgets(temp, sizeof(temp), bashrc) != NULL)
     {
-        if (strncmp(temp, test_string, sizeof(test_string)) == 0) return 1;
+        if (strncmp(temp, test_string, sizeof(test_string)) == SAME_STR) return BASHRC_ERROR;
     }
 
     fclose(bashrc);
