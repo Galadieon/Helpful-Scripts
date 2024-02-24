@@ -5,14 +5,16 @@
 
 struct
 {
-    const char* config_file_start_str;
-    const char* config_file_end_str;
-} Constants;
+    const char* start_str;
+    const char* start_str_default;
+    const char* end_str;
+} ConfigConstants;
 
 void init_constants()
 {
-    Constants.config_file_start_str = "printf '# eval \"$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/";
-    Constants.config_file_end_str = ")\"\\n' >> ~/.bashrc";
+    ConfigConstants.start_str = "printf '# eval \"$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/";
+    ConfigConstants.start_str_default = "printf 'eval \"$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/";
+    ConfigConstants.end_str = ")\"\\n' >> ~/.bashrc";
 }
 
 // You must free the result if result is non-NULL.
@@ -75,8 +77,12 @@ void file_print_configs(FILE* file)
     while (fgets(file_name, sizeof(file_name), config_file_names) != NULL)
     {
         file_name[strcspn(file_name, "\n")] = '\0';
-        fprintf(file, "%s%s%s\n", Constants.config_file_start_str, file_name, Constants.config_file_end_str);
+        if (strcmp(file_name, "sonicboom_light.omp.json") == 0)
+            fprintf(file, "%s%s%s\n", ConfigConstants.start_str_default, file_name, ConfigConstants.end_str);
+        else
+            fprintf(file, "%s%s%s\n", ConfigConstants.start_str, file_name, ConfigConstants.end_str);
         fprintf(file, "%s%s\n", "touch ~/.oh-my-posh-configs/", file_name);
+        fprintf(file, "%s%s\n", "truncate -s 0 ~/.oh-my-posh-configs/", file_name);
         fprintf(file, "%s\n", "printf '%s\\n' '{' \\");
         strcpy(temp, "./config_file_contents/");
         strcat(temp, file_name);
@@ -95,7 +101,6 @@ void file_print_configs(FILE* file)
 
 void file_print_requirements(FILE *file)
 {
-    fprintf(file, "%s\n", "rm -r ~/.oh-my-posh-configs/");
     fprintf(file, "%s\n", "mkdir ~/bin ~/.oh-my-posh-configs");
     fprintf(file, "%s\n", "printf '\\n# HALT TERMINAL PRETTIFIER\\n' >> ~/.bashrc");
     fprintf(file, "%s\n", "printf '\\nexport PATH=\"/home/codespace/bin:$PATH\"\\n' >> ~/.bashrc");
@@ -103,7 +108,6 @@ void file_print_requirements(FILE *file)
     file_print_configs(file);
 
     fprintf(file, "%s\n", "curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin");
-    fprintf(file, "%s%s%s\n", "printf '\\n# DEFAULT:\\neval \"$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/", "sonicboom_light.omp.json", Constants.config_file_end_str);
     fprintf(file, "%s\n", "exec bash");
 }
 

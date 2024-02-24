@@ -1,9 +1,9 @@
-rm -r ~/.oh-my-posh-configs/
 mkdir ~/bin ~/.oh-my-posh-configs
 printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
 printf '\nexport PATH="/home/codespace/bin:$PATH"\n' >> ~/.bashrc
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/atomic.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/atomic.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -283,6 +283,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/atomic.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/blueish.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/blueish.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/blueish.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -407,6 +408,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/blueish.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/craver.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/craver.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/craver.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -519,6 +521,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/craver.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/default.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/default.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/default.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "version": 2,' \
@@ -707,6 +710,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/default.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/jv_sitecorian.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/jv_sitecorian.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -876,6 +880,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/kushal.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/kushal.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/kushal.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "console_title_template": "{{ if .Root }}root @ {{ end }}{{ .Shell }} in {{ .Folder }}",' \
@@ -1093,6 +1098,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/kushal.omp.json
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/lightgreen.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/lightgreen.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/lightgreen.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -1254,8 +1260,9 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/lightgreen.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.bashrc
+printf 'eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.bashrc
 touch ~/.oh-my-posh-configs/sonicboom_light.omp.json
+truncate -s 0 ~/.oh-my-posh-configs/sonicboom_light.omp.json
 printf '%s\n' '{' \
 '  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",' \
 '  "blocks": [' \
@@ -1383,5 +1390,4 @@ printf '%s\n' '{' \
 '}' \
 >> ~/.oh-my-posh-configs/sonicboom_light.omp.json
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
-printf '\n# DEFAULT:\neval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.bashrc
 exec bash
