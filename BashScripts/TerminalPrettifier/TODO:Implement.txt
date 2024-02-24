@@ -1,0 +1,16 @@
+#!/bin/bash
+print_to_bashrc=true
+while IFS="" read -r p || [ -n "$p" ]
+do
+    if [[ "$p" =~ "# HALT TERMINAL PRETTIFIER" ]]; then
+        print_to_bashrc=false
+    fi
+done < ~/.bashrc
+if [[ "$print_to_bashrc" == true ]]; then
+    printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
+    printf 'export PATH="/home/codespace/bin:$PATH"\n' >> ~/.bashrc
+    printf 'source ~/.custom-bash-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
+fi
+mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-bash-scripts
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+...

@@ -1,4 +1,18 @@
+#!/bin/bash
+print_to_bashrc=true
+while IFS="" read -r p || [ -n "$p" ]
+do
+    if [[ "$p" =~ "# HALT TERMINAL PRETTIFIER" ]]; then
+        print_to_bashrc=false
+    fi
+done < ~/.bashrc
+if [[ "$print_to_bashrc" == true ]]; then
+    printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
+    printf 'export PATH="/home/codespace/bin:$PATH"\n' >> ~/.bashrc
+    printf 'source ~/.custom-bash-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
+fi
 mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-bash-scripts
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 touch ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 truncate -s 0 ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
@@ -1389,5 +1403,4 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/sonicboom_light.omp.json
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 exec bash

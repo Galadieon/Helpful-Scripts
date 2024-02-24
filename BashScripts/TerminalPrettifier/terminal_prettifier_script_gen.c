@@ -100,7 +100,6 @@ void file_print_configs(FILE* file)
             fprintf(file, "%s%s%s\n", ConfigConstants.start_str_default, file_name, ConfigConstants.end_str);
         else
             fprintf(file, "%s%s%s\n", ConfigConstants.start_str, file_name, ConfigConstants.end_str);
-        printf("End string: %s\n", ConfigConstants.end_str);
         fprintf(file, "%s%s\n", "touch ~/.oh-my-posh-configs/", file_name);
         fprintf(file, "%s%s\n", "truncate -s 0 ~/.oh-my-posh-configs/", file_name);
         fprintf(file, "%s\n", "printf '%s\\n' '{' \\");
@@ -121,18 +120,20 @@ void file_print_configs(FILE* file)
 
 void file_print_head_requirements(FILE* file, bool print_to_bashrc)
 {
+    if (print_to_bashrc)
+    {
+        fprintf(file, "printf '\\n%s\\n' >> ~/.bashrc\n", "# HALT TERMINAL PRETTIFIER");
+        fprintf(file, "printf '%s\\n' >> ~/.bashrc\n", "export PATH=\"/home/codespace/bin:$PATH\"");
+        fprintf(file, "printf 'source %s/%s\\n' >> ~/.bashrc\n", ConfigConstants.custom_scripts_path, ConfigConstants.configs_script);
+    }
     fprintf(file, "mkdir %s %s %s\n", "~/bin", ConfigConstants.configs_path, ConfigConstants.custom_scripts_path);
+    fprintf(file, "curl -s https://ohmyposh.dev/install.sh | bash -s -- -d %s\n", "~/bin");
     fprintf(file, "touch %s/%s\n", ConfigConstants.custom_scripts_path, ConfigConstants.configs_script);
     fprintf(file, "truncate -s 0 %s/%s\n", ConfigConstants.custom_scripts_path, ConfigConstants.configs_script);
-    if (!print_to_bashrc) return;
-    fprintf(file, "printf '\\n%s\\n' >> ~/.bashrc\n", "# HALT TERMINAL PRETTIFIER");
-    fprintf(file, "printf '%s\\n' >> ~/.bashrc\n", "export PATH=\"/home/codespace/bin:$PATH\"");
-    fprintf(file, "printf 'source %s/%s\\n' >> ~/.bashrc\n", ConfigConstants.custom_scripts_path, ConfigConstants.configs_script);
 }
 
 void file_print_tail_requirements(FILE* file)
 {
-    fprintf(file, "curl -s https://ohmyposh.dev/install.sh | bash -s -- -d %s\n", "~/bin");
     fprintf(file, "exec bash\n");
 }
 
