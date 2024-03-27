@@ -8,14 +8,14 @@ do
 done < ~/.bashrc
 if [[ "$print_to_bashrc" == true ]]; then
     printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
-    printf 'export PATH="/home/codespace/bin:$PATH"\n' >> ~/.bashrc
+    printf 'export PATH="/home/$USER/bin:$PATH"\n' >> ~/.bashrc
     printf 'source ~/.custom-bash-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
 fi
 mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-bash-scripts
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
 touch ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 truncate -s 0 ~/.custom-bash-scripts/terminal-prettifier-configs.sh
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/atomic.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/atomic.omp.json
 printf '%s\n' '{' \
@@ -295,7 +295,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/atomic.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/blueish.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/blueish.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/blueish.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/blueish.omp.json
 printf '%s\n' '{' \
@@ -420,7 +420,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/blueish.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/craver.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/craver.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/craver.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/craver.omp.json
 printf '%s\n' '{' \
@@ -533,7 +533,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/craver.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/default.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/default.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/default.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/default.omp.json
 printf '%s\n' '{' \
@@ -722,7 +722,7 @@ printf '%s\n' '{' \
 '  }' \
 '}' \
 >> ~/.oh-my-posh-configs/default.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/jv_sitecorian.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/jv_sitecorian.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 printf '%s\n' '{' \
@@ -892,7 +892,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/jv_sitecorian.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/kushal.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/kushal.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/kushal.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/kushal.omp.json
 printf '%s\n' '{' \
@@ -1110,7 +1110,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/kushal.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/lightgreen.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/lightgreen.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/lightgreen.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/lightgreen.omp.json
 printf '%s\n' '{' \
@@ -1274,7 +1274,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/lightgreen.omp.json
-printf 'eval "$(oh-my-posh init bash --config /home/codespace/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf 'eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/sonicboom_light.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/sonicboom_light.omp.json
 printf '%s\n' '{' \
