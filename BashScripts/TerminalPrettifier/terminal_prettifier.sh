@@ -8,7 +8,7 @@ do
 done < ~/.bashrc
 if [[ "$print_to_bashrc" == true ]]; then
     printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
-    printf 'export PATH="/home/$USER/bin:$PATH"\n' >> ~/.bashrc
+    printf 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
     printf 'source ~/.custom-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
 fi
 mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-scripts
