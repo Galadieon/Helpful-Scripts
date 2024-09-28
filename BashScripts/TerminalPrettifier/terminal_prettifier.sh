@@ -1405,7 +1405,7 @@ printf '%s\n' '{' \
 >> ~/.oh-my-posh-configs/sonicboom_light.omp.json
 touch ~/.custom-scripts/poshThemeSelector.py
 truncate -s 0 ~/.custom-scripts/poshThemeSelector.py
-printf '%s\n' '{' \
+printf '%s\n' \
 'import subprocess' \
 '' \
 'def main():' \
