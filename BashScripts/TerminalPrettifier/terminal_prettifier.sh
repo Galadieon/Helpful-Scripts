@@ -11,8 +11,8 @@ if [[ "$print_to_bashrc" == true ]]; then
     printf 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
     printf 'source ~/.custom-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
 fi
-mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-scripts
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+mkdir ~/.oh-my-posh-configs ~/.custom-scripts
+curl -s https://ohmyposh.dev/install.sh | bash -s
 touch ~/.custom-scripts/terminal-prettifier-configs.sh
 truncate -s 0 ~/.custom-scripts/terminal-prettifier-configs.sh
 printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
