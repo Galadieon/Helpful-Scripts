@@ -9,13 +9,13 @@ done < ~/.bashrc
 if [[ "$print_to_bashrc" == true ]]; then
     printf '\n# HALT TERMINAL PRETTIFIER\n' >> ~/.bashrc
     printf 'export PATH="/home/$USER/bin:$PATH"\n' >> ~/.bashrc
-    printf 'source ~/.custom-bash-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
+    printf 'source ~/.custom-scripts/terminal-prettifier-configs.sh\n' >> ~/.bashrc
 fi
-mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-bash-scripts
+mkdir ~/bin ~/.oh-my-posh-configs ~/.custom-scripts
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
-touch ~/.custom-bash-scripts/terminal-prettifier-configs.sh
-truncate -s 0 ~/.custom-bash-scripts/terminal-prettifier-configs.sh
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+touch ~/.custom-scripts/terminal-prettifier-configs.sh
+truncate -s 0 ~/.custom-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/atomic.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/atomic.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/atomic.omp.json
 printf '%s\n' '{' \
@@ -295,7 +295,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/atomic.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/blueish.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/blueish.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/blueish.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/blueish.omp.json
 printf '%s\n' '{' \
@@ -420,7 +420,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/blueish.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/craver.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/craver.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/craver.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/craver.omp.json
 printf '%s\n' '{' \
@@ -533,7 +533,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/craver.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/default.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/default.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/default.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/default.omp.json
 printf '%s\n' '{' \
@@ -722,7 +722,7 @@ printf '%s\n' '{' \
 '  }' \
 '}' \
 >> ~/.oh-my-posh-configs/default.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/jv_sitecorian.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/jv_sitecorian.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/jv_sitecorian.omp.json
 printf '%s\n' '{' \
@@ -892,7 +892,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/jv_sitecorian.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/kushal.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/kushal.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/kushal.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/kushal.omp.json
 printf '%s\n' '{' \
@@ -1110,7 +1110,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/kushal.omp.json
-printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/lightgreen.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf '# eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/lightgreen.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/lightgreen.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/lightgreen.omp.json
 printf '%s\n' '{' \
@@ -1274,7 +1274,7 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/lightgreen.omp.json
-printf 'eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.custom-bash-scripts/terminal-prettifier-configs.sh
+printf 'eval "$(oh-my-posh init bash --config /home/$USER/.oh-my-posh-configs/sonicboom_light.omp.json)"\n' >> ~/.custom-scripts/terminal-prettifier-configs.sh
 touch ~/.oh-my-posh-configs/sonicboom_light.omp.json
 truncate -s 0 ~/.oh-my-posh-configs/sonicboom_light.omp.json
 printf '%s\n' '{' \
@@ -1403,4 +1403,54 @@ printf '%s\n' '{' \
 '  "version": 2' \
 '}' \
 >> ~/.oh-my-posh-configs/sonicboom_light.omp.json
+touch ~/.custom-scripts/poshThemeSelector.py
+truncate -s 0 ~/.custom-scripts/poshThemeSelector.py
+printf '%s\n' '{' \
+'import subprocess' \
+'' \
+'def main():' \
+'    # open file in read write' \
+'    file = open("./terminal-prettifier-configs.sh", "r")' \
+'' \
+'    # read the file' \
+'    lines = file.readlines()' \
+'' \
+'    # close the file' \
+'    file.close()' \
+'' \
+'    # print the lines' \
+'    count = 0' \
+'    currentThemeID = ""' \
+'    for line in lines:' \
+'        if line.startswith("eval"):' \
+'            currentThemeID = count' \
+'        print(count, ": ", line.strip(), sep="")' \
+'        count += 1' \
+'    # ask user to select a theme' \
+'    print("Select a theme: ", end="")' \
+'    theme = int(input())' \
+'' \
+'    # open file in write mode' \
+'    file = open("./terminal-prettifier-configs.sh", "w")' \
+'' \
+'    # edit the previous selected line' \
+'    lines[currentThemeID] = "# " + lines[currentThemeID]' \
+'' \
+'    # edit the selected line' \
+'    lines[theme] = lines[theme].replace("# ", "")' \
+'' \
+'    # write the lines' \
+'    file.writelines(lines)' \
+'' \
+'    # close the file' \
+'    file.close()' \
+'' \
+'    # exec bash' \
+'    subprocess.run("exec bash", shell=True)' \
+'' \
+'    return 0' \
+'' \
+'if __name__ == "__main__":' \
+'    main()' \
+>> ~/.custom-scripts/poshThemeSelector.py
 exec bash
