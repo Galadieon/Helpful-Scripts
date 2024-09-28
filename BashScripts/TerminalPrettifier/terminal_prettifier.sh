@@ -1372,7 +1372,7 @@ printf '%s\n' '{' \
 '            "time_format": "3:04:05 PM"' \
 '          },' \
 '          "style": "diamond",' \
-'          "template": " <#99FFFF>\ue31e\uf0fb</>  {{ .CurrentDate | date .Format }} ",' \
+'          "template": " <#99FFFF>\ue31e\uf0fb </> {{ .CurrentDate | date .Format }} ",' \
 '          "trailing_diamond": "\ue0c5 ",' \
 '          "type": "time"' \
 '        }' \
